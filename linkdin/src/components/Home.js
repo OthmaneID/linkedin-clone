@@ -24,7 +24,6 @@ const Home = () => {
   );
 };
 
-
 const Layout = styled.div`
   display: grid;
   grid-template-areas: "leftside main rightside";
@@ -37,6 +36,7 @@ const Layout = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 5px;
+    padding-bottom: 100px;
   }
 `;
 
