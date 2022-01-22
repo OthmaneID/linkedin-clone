@@ -1,17 +1,22 @@
 import styled from "styled-components";
 import React from "react";
+import { connect } from "react-redux";
 
-const Main = () => {
+const Main = (props) => {
   return (
     <Container>
       <ShareBox>
         Share
         <div>
-          <img src="./images/user.svg" alt="" />
+          {
+            props.user && props.user.photoURL ? (<img src={props.user.photoURL} alt='' />)
+              : (<img src="./images/user.svg" alt="" />)
+          }
           <button>Start a post</button>
         </div>
         <div>
           <button>
+
             <img src="./images/photo-icon.svg" alt="" />
             <span>Photo</span>
           </button>
@@ -139,6 +144,11 @@ const ShareBox = styled(CommonCard)`
         border: 1px solid rgba(0, 0, 0, 0.15);
         background-color: white;
         text-align: left;
+        cursor:pointer;
+        &:hover{
+          background-color: rgba(0, 0, 0, 0.06f );
+          color: rgba(0, 0, 0, 0.8);
+        }
       }
     }
     &:nth-child(2) {
@@ -293,4 +303,12 @@ const SocialActions = styled.div`
   }
 `;
 
-export default Main;
+const mapPropsToState = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+const mapDispatchToState = (dispatch) => ({});
+
+export default connect(mapPropsToState)(Main);

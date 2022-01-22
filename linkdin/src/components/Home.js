@@ -3,8 +3,9 @@ import React from "react";
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 import Main from "./Main";
+import { connect } from "react-redux";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <Container>
       <Section>
@@ -76,4 +77,14 @@ const Section = styled.section`
     padding: 0 5px;
   }
 `;
-export default Home;
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+}
+
+const mapDispatchToProps = (dispatch) => ({});
+
+
+export default connect(mapStateToProps)(Home);

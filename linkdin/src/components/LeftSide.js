@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import React from "react";
+import { connect } from "react-redux";
 
-const LeftSide = () => {
+const LeftSide = (props) => {
   return (
     <Container>
       <ArtCard>
@@ -9,7 +10,7 @@ const LeftSide = () => {
           <CardBackground />
           <a>
             <Photo />
-            <Link>Welcome, there!</Link>
+            <Link>Welcome, {props.user ? props.user.displayName : 'there'} !</Link>
           </a>
           <a>
             <AddPhotoText>Add a Photo</AddPhotoText>
@@ -147,7 +148,7 @@ const Container = styled.div`
   grid-area: leftside;
 `;
 
-export default LeftSide;
+
 
 const ArtCard = styled.div`
   text-align: center;
@@ -190,3 +191,13 @@ const CommunityCard = styled(ArtCard)`
     }
   }
 `;
+
+const mapPropsToState = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+const mapDispatchToState = (dispatch) => ({});
+
+export default connect(mapPropsToState)(LeftSide);
