@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import { connect } from "react-redux";
 
 const login = () => {
   return (
@@ -162,4 +163,12 @@ const Nav = styled.nav`
   }
 `;
 
-export default login;
+const mapStateToProps = (state) => {
+  return {};
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(login)
