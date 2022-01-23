@@ -11,7 +11,7 @@ const Header = (props) => {
     <Container>
       {
         !props.user &&
-        <Navigate to='/'/>
+        <Navigate to='/' />
       }
       <Content>
         <Logo>
@@ -274,7 +274,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  signOut: () => dispatch(SignOutAPI()), 
+  signOut: () => dispatch(SignOutAPI()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
